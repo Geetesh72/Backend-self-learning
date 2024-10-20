@@ -19,4 +19,15 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
+// routes 
+import userRouter from './routes/user.routes.js'
+
+// reoutes decalaration /
+app.use("/api/v1/users",userRouter)
+
+// how url look like /
+// http://localhost:8000/api/v1/uesrs/register
+
+
+
 export {app}

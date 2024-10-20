@@ -61,7 +61,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save",async function(next){ // why async cause we have to wait 
     if(!this.isModified("password"))return next(); // dont use arrow fucntion 
-    this.password=bcrypt.hash(this.password,10)
+    this.password= await bcrypt.hash(this.password,10)
     next()
 })
 
